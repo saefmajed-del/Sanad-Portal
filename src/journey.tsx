@@ -699,7 +699,7 @@ function Brackets() {
   );
 }
 
-/* STEP 1 */
+/* STEP 1 — Legacy: kept for reference (replaced by GapV). */
 function RegV() {
   return (
     <div className="relative flex h-full w-full items-center justify-center p-6">
@@ -1181,7 +1181,6 @@ function DevicesV() {
     "ok","ok","ok","ok",
     "quar","ok","ok","ok",
   ];
-  const typeOf = (i: number) => ["💻","📱","🖥","📟"][i % 4]; // shape proxy via icons
   return (
     <div className="relative flex h-full w-full items-center justify-center p-4">
       <motion.div
@@ -1364,3 +1363,7 @@ function DecisionV() {
     </div>
   );
 }
+
+// Reference legacy visuals so noUnusedLocals doesn't flag them.
+// Kept in source for archive purposes per the archive-first rule.
+void [RegV, LegalV, FinV];

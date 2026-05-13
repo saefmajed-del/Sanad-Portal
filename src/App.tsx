@@ -22,8 +22,6 @@ import {
   Bot,
   Smartphone,
   Network,
-  ArrowRight,
-  Brain,
 } from "lucide-react";
 import {
   SAMPLE_POLICY,
