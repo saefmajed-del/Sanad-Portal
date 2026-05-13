@@ -35,6 +35,7 @@ import {
   type Recommendation,
 } from "./data";
 import { JourneySection } from "./journey";
+import { BoothMockup } from "./BoothMockup";
 
 type AnalysisState = "idle" | "running" | "done";
 
@@ -47,6 +48,7 @@ export default function App() {
         <Hero />
         <DemoSection />
         <HowItWorks />
+        <BoothMockup />
         <JourneySection />
         <RoadmapSection />
         <LaunchCard />
