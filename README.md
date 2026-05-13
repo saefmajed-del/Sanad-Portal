@@ -1,73 +1,89 @@
-# React + TypeScript + Vite
+# سـند — Sanad
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Saudi Internal Audit AI Assistant · First Module of the راصد · RASSED Platform**
 
-Currently, two official plugins are available:
+Built by **Savvy World × Raqeem for Smart Solutions** for the Royal Commission for Jubail and Yanbu's **Internal Audit Day · 2026-05-20**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## What is this?
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**Sanad** is an AI internal audit assistant designed *with* auditors, not against them. It reads internal policies in Arabic, compares them against COSO 2013, IIA Standards, and Saudi PDPL, then surfaces governance gaps with precise citations.
 
-## Expanding the ESLint configuration
+This repository contains:
+- The live **product demo** (Vite + React + TypeScript)
+- The **90-Second Customer Journey** experience (`From Signal to Governance`)
+- The **booth design** spec for the Internal Audit Day expo
+- The **executive brief** (printable A4 PDF)
+- The **pitch script**, the **email drafts**, the **build report**
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+It is part of a larger vision: راصد · RASSED — a Saudi platform for governance intelligence combining AI, robotics (PUDU), and device governance (SOTI).
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Run locally
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev          # → http://localhost:5173
+npx tsc --noEmit     # type check
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Print the brief / open the booth view
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Open in any browser:
+- `BRIEF.html` — 2-page executive brief (Ctrl+P → Save as PDF)
+- `BOOTH.html` — booth floor plan + zone breakdown
+
+---
+
+## Repository structure
+
 ```
+.
+├── src/
+│   ├── App.tsx               Main app shell — Hero · Demo · HowItWorks · Journey · Roadmap · Launch · Footer
+│   ├── journey.tsx           90-Second Customer Journey + 6 SVG visualizations
+│   ├── data.ts               Sample policy, findings, recommendations, journey steps
+│   ├── index.css             Tailwind + custom utilities
+│   └── main.tsx              Entry
+├── BRIEF.html                2-page executive brief (printable)
+├── BOOTH.html                Booth design — visual page
+├── BOOTH-DESIGN.md           Booth design — full text spec
+├── PITCH-SCRIPT.md           60-second pitch + Q&A prep
+├── EMAIL-RAQEEM.md           Email drafts for the Raqeem stakeholder
+├── REPORT.md                 English build report for human team review
+└── capture-screenshots.mjs   Playwright script for 4K screenshots
+```
+
+---
+
+## The 90-Second Journey · "From Signal to Governance"
+
+| Act | Beat | What happens |
+|---|---|---|
+| Discovery | Governance Gap Surfaces | Sanad finds a missing policy clause + finance flags the transaction that exploits it |
+| Discovery | Risk Profile Snapshot | Severity scored, escalated to the audit manager |
+| Verification | Chain of Custody (PUDU) | Sealed dossier moves between departments with tamper-proof Hash |
+| Verification | Device Fleet Integrity (SOTI) | 16 devices checked — 14 compliant, 1 alerted, 1 quarantined |
+| Governance | Human Auditor Decides | Auditor reviews evidence and signs off — AI cannot proceed without approval |
+| Governance | Policy Amended · Loop Closed | The specific policy clause is updated, the loophole closes, monitoring continues |
+
+---
+
+## Stack
+
+- **Vite** 8 · **React** 19 · **TypeScript** strict
+- **Tailwind CSS** 3 with custom navy + warm gold palette
+- **Framer Motion** for cinematic transitions
+- **lucide-react** for clean line icons (no emojis)
+- **Playwright** for screenshot automation
+- Arabic-first typography: **IBM Plex Sans Arabic** + **Noto Naskh Arabic** + **Inter** + **JetBrains Mono**
+
+---
+
+## License
+
+Proprietary · Savvy World 2026
