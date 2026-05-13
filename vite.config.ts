@@ -5,5 +5,5 @@ import react from "@vitejs/plugin-react";
 // Base path matches the GitHub Pages URL: https://saefmajed-del.github.io/sanad-portal/
 export default defineConfig({
   plugins: [react()],
-  base: "/sanad-portal/",
+  base: "/Sanad-Portal/",
 });
