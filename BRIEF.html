@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>راصد | RASSED — Concept Brief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0A1428;
+  --navy-soft: #1E2C48;
+  --gold: #B08D57;
+  --gold-soft: #C9A572;
+  --green: #1F7A4D;
+  --paper: #FBF9F4;
+  --ink: #161B26;
+  --ink-2: #4A5468;
+  --ink-3: #8A93A4;
+  --line: #E3DDD0;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  font-family: "Inter", system-ui, sans-serif;
+  background: #E5E1D5;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+.ar { font-family: "IBM Plex Sans Arabic", Tahoma, sans-serif; direction: rtl; }
+.ar-serif { font-family: "Noto Naskh Arabic", serif; direction: rtl; }
+.mono { font-family: "JetBrains Mono", ui-monospace, monospace; font-feature-settings: "tnum"; }
+.en { direction: ltr; font-family: "Inter", system-ui, sans-serif; }
+
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  padding: 16mm 16mm 14mm;
+  margin: 12mm auto;
+  background: var(--paper);
+  box-shadow: 0 4px 30px rgba(0,0,0,0.12);
+  position: relative;
+  page-break-after: always;
+  overflow: hidden;
+}
+.page:last-child { page-break-after: auto; margin-bottom: 12mm; }
+
+/* Decorative gold corner */
+.page::before {
+  content: "";
+  position: absolute;
+  top: 0; right: 0;
+  width: 60mm; height: 60mm;
+  background: radial-gradient(ellipse at top right, rgba(176,141,87,0.07), transparent 65%);
+  pointer-events: none;
+}
+
+/* Header */
+.brief-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-bottom: 6mm;
+  border-bottom: 0.4mm solid var(--gold);
+  margin-bottom: 8mm;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 4mm;
+}
+.brand-icon {
+  width: 11mm; height: 11mm;
+  border: 0.3mm solid var(--gold);
+  border-radius: 2mm;
+  background: rgba(176,141,87,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  font-size: 6mm;
+  font-weight: bold;
+}
+.brand-text { line-height: 1.2; }
+.brand-ar { font-family: "Noto Naskh Arabic", serif; font-size: 6.5mm; font-weight: 700; color: var(--navy); }
+.brand-en { font-family: "JetBrains Mono"; font-size: 2.4mm; letter-spacing: 0.25em; color: var(--ink-3); margin-top: 0.5mm; }
+
+.header-meta { text-align: left; }
+.header-meta .ar { font-size: 3mm; color: var(--ink-2); margin-bottom: 1mm; }
+.header-meta .mono { font-size: 2.4mm; letter-spacing: 0.2em; color: var(--ink-3); }
+
+/* Headlines */
+h1.hero {
+  font-family: "Noto Naskh Arabic", serif;
+  font-size: 22mm;
+  line-height: 1;
+  color: var(--navy);
+  text-align: center;
+  margin: 4mm 0 2mm;
+  font-weight: 700;
+}
+.hero-en {
+  text-align: center;
+  font-family: "JetBrains Mono";
+  font-size: 3mm;
+  letter-spacing: 0.4em;
+  color: var(--gold);
+  margin-bottom: 6mm;
+}
+.hero-en::before,
+.hero-en::after {
+  content: "  —  ";
+  color: var(--gold);
+  opacity: 0.5;
+}
+
+.positioning {
+  text-align: center;
+  font-family: "IBM Plex Sans Arabic";
+  font-size: 5.2mm;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.5;
+  margin-bottom: 3mm;
+  max-width: 150mm;
+  margin-left: auto;
+  margin-right: auto;
+}
+.positioning-sub {
+  text-align: center;
+  font-size: 3.2mm;
+  color: var(--ink-2);
+  margin-bottom: 8mm;
+}
+
+/* Pillars */
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3mm;
+  margin-bottom: 8mm;
+}
+.pillar {
+  border: 0.3mm solid var(--line);
+  border-radius: 2.5mm;
+  padding: 4mm;
+  text-align: center;
+  background: white;
+}
+.pillar-icon {
+  font-size: 6mm;
+  color: var(--gold);
+  margin-bottom: 1mm;
+}
+.pillar-ar {
+  font-family: "Noto Naskh Arabic";
+  font-size: 5mm;
+  font-weight: 700;
+  color: var(--navy);
+}
+.pillar-en {
+  font-family: "JetBrains Mono";
+  font-size: 2.2mm;
+  letter-spacing: 0.25em;
+  color: var(--gold);
+  margin: 1.5mm 0;
+}
+.pillar-body {
+  font-family: "IBM Plex Sans Arabic";
+  font-size: 2.6mm;
+  color: var(--ink-2);
+  line-height: 1.5;
+}
+
+/* Sections */
+.section {
+  margin-bottom: 6mm;
+}
+.section-eyebrow {
+  font-family: "JetBrains Mono";
+  font-size: 2.4mm;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 2mm;
+}
+.section-title {
+  font-family: "IBM Plex Sans Arabic";
+  font-size: 5.5mm;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 3mm;
+}
+.section-body {
+  font-family: "IBM Plex Sans Arabic";
+  font-size: 3.4mm;
+  color: var(--ink);
+  line-height: 1.7;
+}
+
+/* Quote box */
+.quote {
+  border-right: 1mm solid var(--gold);
+  background: rgba(176,141,87,0.05);
+  padding: 5mm 6mm;
+  margin: 5mm 0;
+  border-radius: 0 2mm 2mm 0;
+}
+.quote-text {
+  font-family: "Noto Naskh Arabic";
+  font-size: 4.2mm;
+  line-height: 1.7;
+  color: var(--navy);
+  font-weight: 500;
+}
+.quote-attr {
+  font-size: 2.6mm;
+  color: var(--ink-3);
+  margin-top: 2mm;
+}
+
+/* Timeline */
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.5mm;
+  margin: 5mm 0;
+}
+.tl-item {
+  border: 0.3mm solid var(--line);
+  border-radius: 2.5mm;
+  padding: 3.5mm;
+  background: white;
+  position: relative;
+}
+.tl-item.active {
+  border: 0.5mm solid var(--gold);
+  background: rgba(176,141,87,0.04);
+}
+.tl-tag {
+  display: inline-block;
+  font-family: "JetBrains Mono";
+  font-size: 1.9mm;
+  letter-spacing: 0.2em;
+  padding: 0.6mm 1.5mm;
+  border-radius: 0.6mm;
+  background: var(--line);
+  color: var(--ink-2);
+  margin-bottom: 2mm;
+}
+.tl-item.active .tl-tag {
+  background: var(--green);
+  color: white;
+}
+.tl-q {
+  font-family: "JetBrains Mono";
+  font-size: 2.3mm;
+  letter-spacing: 0.2em;
+  color: var(--ink-3);
+  margin-bottom: 1mm;
+}
+.tl-title {
+  font-family: "IBM Plex Sans Arabic";
+  font-size: 3.4mm;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 1.5mm;
+  line-height: 1.3;
+}
+.tl-body {
+  font-family: "IBM Plex Sans Arabic";
+  font-size: 2.7mm;
+  color: var(--ink-2);
+  line-height: 1.5;
+}
+
+/* Launch panel */
+.launch-panel {
+  background: var(--navy);
+  color: var(--paper);
+  border-radius: 3mm;
+  padding: 7mm 8mm;
+  margin: 6mm 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6mm;
+}
+.launch-panel .label {
+  font-family: "JetBrains Mono";
+  font-size: 2.2mm;
+  letter-spacing: 0.3em;
+  color: var(--gold-soft);
+  margin-bottom: 2mm;
+}
+.launch-panel .date {
+  font-family: "Noto Naskh Arabic";
+  font-size: 8mm;
+  font-weight: 700;
+  line-height: 1.1;
+}
+.launch-panel .ev {
+  font-family: "IBM Plex Sans Arabic";
+  font-size: 4mm;
+  color: var(--gold-soft);
+  margin-top: 1.5mm;
+}
+.launch-panel .desc {
+  font-family: "IBM Plex Sans Arabic";
+  font-size: 3.2mm;
+  line-height: 1.6;
+  max-width: 90mm;
+  color: rgba(255,255,255,0.85);
+}
+
+/* KPI strip */
+.kpi-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.5mm;
+  margin: 4mm 0;
+}
+.kpi {
+  border: 0.3mm solid var(--line);
+  border-radius: 2mm;
+  padding: 3mm;
+  background: white;
+  text-align: center;
+}
+.kpi-val {
+  font-family: "JetBrains Mono";
+  font-size: 6mm;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+}
+.kpi-label {
+  font-family: "IBM Plex Sans Arabic";
+  font-size: 2.6mm;
+  color: var(--ink-2);
+  margin-top: 1.5mm;
+}
+
+/* Closing */
+.closing {
+  text-align: center;
+  padding: 6mm;
+  border: 0.4mm solid var(--gold);
+  border-radius: 3mm;
+  background: rgba(176,141,87,0.05);
+  margin-top: 5mm;
+}
+.closing-text {
+  font-family: "Noto Naskh Arabic";
+  font-size: 6mm;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.4;
+  margin-bottom: 2mm;
+}
+.closing-text .gold { color: var(--gold); }
+.closing-sub {
+  font-family: "IBM Plex Sans Arabic";
+  font-size: 3mm;
+  color: var(--ink-2);
+  margin-top: 2mm;
+}
+
+/* Footer strip */
+.brief-footer {
+  position: absolute;
+  bottom: 8mm;
+  left: 16mm;
+  right: 16mm;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "JetBrains Mono";
+  font-size: 2.2mm;
+  letter-spacing: 0.2em;
+  color: var(--ink-3);
+  border-top: 0.2mm solid var(--line);
+  padding-top: 3mm;
+}
+
+/* Print */
+@media print {
+  body { background: white; }
+  .page {
+    box-shadow: none;
+    margin: 0;
+    page-break-after: always;
+  }
+  .page:last-child { page-break-after: auto; }
+  @page {
+    size: A4;
+    margin: 0;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- =========================================================
+     PAGE 1 — Concept + Platform
+     ========================================================= -->
+<div class="page">
+
+  <div class="brief-header">
+    <div class="brand">
+      <div class="brand-icon">◆</div>
+      <div class="brand-text">
+        <div class="brand-ar">راصد</div>
+        <div class="brand-en">RASSED · GOVERNANCE</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <div class="ar">مذكرة فكرة استراتيجية</div>
+      <div class="mono">CONCEPT BRIEF  ·  v0.1</div>
+      <div class="mono">RAQEEM × SAVVY WORLD</div>
+    </div>
+  </div>
+
+  <h1 class="hero">راصــد</h1>
+  <div class="hero-en">RASSED · GOVERNANCE INTELLIGENCE</div>
+
+  <p class="positioning">
+    أول منصة سعودية للحوكمة الذكية المتكاملة —
+    تجمع الذكاء الاصطناعي والروبوتات والتحكم في الأجهزة في منظومة واحدة.
+  </p>
+  <p class="positioning-sub">
+    Saudi-built · Built for enterprise · Aligned with Vision 2030
+  </p>
+
+  <div class="pillars">
+    <div class="pillar">
+      <div class="pillar-icon">⬡</div>
+      <div class="pillar-ar">طبقة الذكاء</div>
+      <div class="pillar-en">AI LAYER</div>
+      <div class="pillar-body">
+        سـند للمراجعة الذكية، محرك المخاطر، الامتثال، والاستشهادات.
+      </div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">⬢</div>
+      <div class="pillar-ar">طبقة الحركة</div>
+      <div class="pillar-en">PHYSICAL LAYER</div>
+      <div class="pillar-body">
+        PUDU FlashBot لنقل الوثائق الحساسة، خزائن مؤمّنة، توثيق سلسلة الحضانة.
+      </div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">⬣</div>
+      <div class="pillar-ar">طبقة التحكم</div>
+      <div class="pillar-en">DEVICE LAYER</div>
+      <div class="pillar-body">
+        SOTI لحوكمة الأجهزة، التحكم عن بُعد، تنفيذ السياسات، وسجلات المراجعة.
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">THE INSIGHT  ·  الرؤية</div>
+    <div class="section-title">٣ متخصصين فقط يديرون منظومة كاملة</div>
+    <p class="section-body">
+      فريق متكوّن من <b>محام، مراجع داخلي، ومسؤول امتثال مالي</b>
+      يدير دورة حوكمة مؤسسية كاملة، عندما تُسند المهام التشغيلية إلى الذكاء الاصطناعي،
+      الروبوتات، والأنظمة الذكية. المنظومة تراقب، تنقل، توثّق، وتُصعّد —
+      والفريق يقرر.
+    </p>
+  </div>
+
+  <div class="quote">
+    <p class="quote-text">
+      «المؤسسات لا تحتاج فرق تشغيل ضخمة بعد اليوم.
+      الذكاء يراقب · الروبوتات تنقل · الحوكمة تدير · والفريق يقرر.»
+    </p>
+    <p class="quote-attr">— راصد · رقيم × Savvy World</p>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">THE OPPORTUNITY  ·  لماذا الآن؟</div>
+    <p class="section-body">
+      شهر مايو هو شهر التوعية الدولي بالمراجعة الداخلية. يوم المراجعة الداخلية
+      في الهيئة الملكية يأتي ضمن هذا الإطار — فرصة مثالية لإطلاق منصة راصد
+      كهدية رمزية لمهنة المراجعة، ولرسم خريطة طموحة لمستقبل الحوكمة في المملكة.
+    </p>
+  </div>
+
+  <div class="brief-footer">
+    <span>PAGE 1 / 2</span>
+    <span>RASSED CONCEPT BRIEF  ·  CONFIDENTIAL</span>
+    <span>2026-05-13</span>
+  </div>
+</div>
+
+
+<!-- =========================================================
+     PAGE 2 — Roadmap + Launch + CTA
+     ========================================================= -->
+<div class="page">
+
+  <div class="brief-header">
+    <div class="brand">
+      <div class="brand-icon">◆</div>
+      <div class="brand-text">
+        <div class="brand-ar">راصد</div>
+        <div class="brand-en">RASSED · GOVERNANCE</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <div class="ar">المنتج · خارطة الطريق · الإطلاق</div>
+      <div class="mono">PRODUCT  ·  ROADMAP  ·  LAUNCH</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">FIRST MODULE  ·  LIVE TODAY</div>
+    <div class="section-title">سـند — مساعد المراجعة الداخلية الذكي</div>
+    <p class="section-body">
+      الوحدة الأولى من راصد — جاهزة اليوم كنموذج عمل.
+      يقرأ السياسات الداخلية، يستخرج الضوابط، يقارنها بمعايير COSO و IIA و PDPL،
+      ويكشف الفجوات مع الاستشهاد الدقيق لكل ضابط. يوفّر للمراجع الداخلي
+      أسابيع من العمل اليدوي في دقائق.
+    </p>
+  </div>
+
+  <div class="kpi-row">
+    <div class="kpi">
+      <div class="kpi-val">‹ 3 د</div>
+      <div class="kpi-label">سرعة التحليل</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-val">22</div>
+      <div class="kpi-label">ضابط لكل سياسة</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-val">٦</div>
+      <div class="kpi-label">معايير مرجعية</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-val">100%</div>
+      <div class="kpi-label">عربي ومحلي</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">ROADMAP  ·  خارطة الطريق</div>
+    <div class="section-title">راصد ليست أداة واحدة — منظومة كاملة</div>
+  </div>
+
+  <div class="timeline">
+    <div class="tl-item active">
+      <div class="tl-tag">LIVE TODAY</div>
+      <div class="tl-q">Q2 · 2026</div>
+      <div class="tl-title">سـند<br>Audit AI</div>
+      <div class="tl-body">المساعد الذكي — كشف الفجوات والاستشهاد بالمعايير.</div>
+    </div>
+    <div class="tl-item active">
+      <div class="tl-tag">ACTIVE PARTNERSHIP</div>
+      <div class="tl-q">Q3 · 2026</div>
+      <div class="tl-title">PUDU<br>Chain of Custody</div>
+      <div class="tl-body">شراكة استراتيجية موقّعة. أول نشر سعودي قيد التنفيذ — وثائق بأمان مصرفي.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-tag">Q4 ROADMAP</div>
+      <div class="tl-q">Q4 · 2026</div>
+      <div class="tl-title">SOTI<br>Device Governance</div>
+      <div class="tl-body">حوكمة الأجهزة، التحكم عن بُعد، الامتثال، سجلات المراجعة.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-tag">VISION</div>
+      <div class="tl-q">2027</div>
+      <div class="tl-title">Command<br>Center</div>
+      <div class="tl-body">غرفة عمليات حوكمة موحّدة — كل الطبقات في شاشة واحدة.</div>
+    </div>
+  </div>
+
+  <div class="launch-panel">
+    <div>
+      <div class="label">LAUNCH MOMENT</div>
+      <div class="date">٢٠ مايو ٢٠٢٦</div>
+      <div class="ev">يوم المراجعة الداخلية · الهيئة الملكية</div>
+    </div>
+    <div class="desc">
+      في هذا اليوم — تُكشف منصة <b>راصد</b> رسمياً، بأول وحداتها <b>سـند</b>،
+      هدية لكل مراجع داخلي ضمن شهر التوعية الدولي بالمراجعة الداخلية.
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">PARTNERSHIP  ·  لماذا رقيم × Savvy World</div>
+    <p class="section-body">
+      <b>رقيم</b> — الذراع التقني للهيئة الملكية للجبيل وينبع، تمتلك الشبكة، الحوكمة، والوصول للقطاع الصناعي.
+      <b>Savvy World</b> — يقدّم الذكاء الاصطناعي العربي السعودي، الروبوتات،
+      وملكية فكرية محلية ١٠٠٪. الشراكة تجمع البنية التحتية مع التقنية النادرة.
+    </p>
+  </div>
+
+  <div class="closing">
+    <div class="closing-text">
+      <span class="gold">PUDU</span> ينفذ  ·{" "}
+      <span class="gold">SOTI</span> يدير  ·{" "}
+      <span class="gold">راصد</span> يحكم الدورة كاملة
+    </div>
+    <div class="closing-sub">
+      نحو حوكمة سعودية ذكية متوافقة مع رؤية ٢٠٣٠.
+    </div>
+  </div>
+
+  <div class="brief-footer">
+    <span>PAGE 2 / 2</span>
+    <span>RASSED CONCEPT BRIEF  ·  CONFIDENTIAL</span>
+    <span>RAQEEM × SAVVY WORLD</span>
+  </div>
+</div>
+
+</body>
+</html>

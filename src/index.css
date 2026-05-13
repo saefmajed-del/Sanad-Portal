@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    @apply min-h-screen bg-base text-ink-1;
+    margin: 0;
+  }
+  body {
+    font-family: "Inter", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #070b14;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1f2d44;
+    border-radius: 6px;
+  }
+}
+
+@layer utilities {
+  .ar {
+    font-family: "IBM Plex Sans Arabic", Tahoma, sans-serif;
+    direction: rtl;
+  }
+  .ar-serif {
+    font-family: "Noto Naskh Arabic", serif;
+    direction: rtl;
+  }
+  .mono {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-feature-settings: "tnum", "zero";
+  }
+  .num {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Premium paper texture on cards */
+  .panel {
+    background:
+      linear-gradient(180deg, rgba(23, 38, 69, 0.45) 0%, rgba(16, 26, 46, 0.65) 100%);
+    border: 1px solid rgba(245, 242, 235, 0.07);
+    backdrop-filter: blur(8px);
+  }
+  .panel-flat {
+    background: #101A2E;
+    border: 1px solid rgba(245, 242, 235, 0.07);
+  }
+  .panel-strong {
+    background:
+      linear-gradient(180deg, rgba(30, 52, 97, 0.55) 0%, rgba(15, 26, 46, 0.85) 100%);
+    border: 1px solid rgba(245, 242, 235, 0.14);
+  }
+  .panel-paper {
+    background: #FAF8F2;
+    color: #1A1A1A;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  .grid-soft {
+    background-image:
+      linear-gradient(rgba(245, 242, 235, 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245, 242, 235, 0.025) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .radial-warm {
+    background: radial-gradient(
+      ellipse 1100px 540px at 20% 0%,
+      rgba(196, 165, 114, 0.06) 0%,
+      transparent 60%
+    );
+  }
+  .radial-cool {
+    background: radial-gradient(
+      ellipse 900px 480px at 80% 100%,
+      rgba(30, 52, 97, 0.32) 0%,
+      transparent 60%
+    );
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-line bg-surface/70 px-2.5 py-1 text-[11px] font-medium text-ink-2;
+  }
+  .chip-gold {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-gold-500/30 bg-gold-500/5 px-3 py-1 text-[12px] text-gold-400;
+  }
+  .chip-green {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-sa-green/30 bg-sa-green/5 px-3 py-1 text-[12px] text-sa-greenHi;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-b from-gold-400 to-gold-500 px-5 py-3 text-[15px] font-bold text-navy-900 transition hover:from-gold-400 hover:to-gold-400 disabled:opacity-50 disabled:cursor-not-allowed;
+    box-shadow: 0 8px 24px -8px rgba(196, 165, 114, 0.4);
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-lineStrong bg-surface/40 px-4 py-2.5 text-[13px] text-ink-1 transition hover:bg-surface/80;
+  }
+
+  /* Shimmer for loading text */
+  .shimmer-text {
+    background: linear-gradient(
+      90deg,
+      rgba(245, 242, 235, 0.4) 0%,
+      rgba(196, 165, 114, 0.95) 50%,
+      rgba(245, 242, 235, 0.4) 100%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shimmer 2.6s linear infinite;
+  }
+
+  .divider-gold {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(196, 165, 114, 0.5) 50%,
+      transparent 100%
+    );
+    height: 1px;
+  }
+
+  /* Hover lift */
+  .lift {
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s;
+  }
+  .lift:hover {
+    transform: translateY(-2px);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}

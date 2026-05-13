@@ -1,0 +1,48 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build output
+dist/
+dist-ssr/
+build/
+
+# Local env / secrets
+.env
+.env.local
+.env.*.local
+*.pem
+
+# IDE / OS
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Logs
+logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Vite + local
+.vite/
+*.local
+
+# Playwright (large browser binaries already installed at user level)
+test-results/
+playwright-report/
+playwright/.cache/
+
+# Archived (kept on disk for reference, not version-tracked)
+src/*.archived

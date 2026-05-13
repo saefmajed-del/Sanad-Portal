@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>راصد · BOOTH DESIGN — Internal Audit Day 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:        #070B14;
+    --navy-soft:   #0F1828;
+    --navy-card:   #15243F;
+    --gold:        #C4A572;
+    --gold-hi:     #D4B785;
+    --green:       #00C281;
+    --amber:       #E8B339;
+    --red:         #E5526B;
+    --ink:         #F5F2EB;
+    --ink-2:       #C7CCD6;
+    --ink-3:       #7C8598;
+    --line:        rgba(245,242,235,0.10);
+    --line-strong: rgba(245,242,235,0.20);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    background: var(--navy);
+    color: var(--ink);
+    font-family: "Inter", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+  .ar { font-family: "IBM Plex Sans Arabic", Tahoma, sans-serif; direction: rtl; }
+  .ar-serif { font-family: "Noto Naskh Arabic", serif; direction: rtl; }
+  .mono { font-family: "JetBrains Mono", ui-monospace, monospace; font-feature-settings: "tnum"; }
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 50px 40px 80px;
+  }
+
+  /* -------- Header -------- */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 40px;
+  }
+  .brand { display: flex; align-items: center; gap: 14px; }
+  .brand-icon {
+    width: 40px; height: 40px;
+    border: 1px solid rgba(196,165,114,0.4);
+    border-radius: 9px;
+    background: rgba(196,165,114,0.08);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold);
+    font-size: 18px; font-weight: 700;
+  }
+  .brand-ar { font-family: "Noto Naskh Arabic"; font-size: 22px; font-weight: 700; line-height: 1; }
+  .brand-en { font-family: "JetBrains Mono"; font-size: 9px; letter-spacing: 0.25em; color: var(--ink-3); margin-top: 4px; }
+  .meta { text-align: left; }
+  .meta .l1 { font-family: "IBM Plex Sans Arabic"; font-size: 14px; color: var(--ink-2); margin-bottom: 4px; }
+  .meta .l2 { font-family: "JetBrains Mono"; font-size: 10px; letter-spacing: 0.2em; color: var(--ink-3); }
+
+  /* -------- Hero -------- */
+  .hero {
+    text-align: center;
+    margin: 60px auto 30px;
+    max-width: 900px;
+  }
+  .hero-eyebrow {
+    font-family: "JetBrains Mono"; font-size: 11px;
+    letter-spacing: 0.3em; color: var(--gold);
+    margin-bottom: 14px;
+  }
+  .hero h1 {
+    font-family: "IBM Plex Sans Arabic";
+    font-size: 56px; font-weight: 700; line-height: 1.15;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+  .hero h1 b { color: var(--gold-hi); font-weight: 700; }
+  .hero p { font-family: "IBM Plex Sans Arabic"; font-size: 18px; color: var(--ink-2); line-height: 1.6; }
+
+  /* -------- Floor plan box -------- */
+  .floor-wrap {
+    background: linear-gradient(180deg, var(--navy-soft) 0%, var(--navy) 100%);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 40px;
+    margin: 50px auto;
+    position: relative;
+    overflow: hidden;
+  }
+  .floor-wrap::before {
+    content: "";
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(245,242,235,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245,242,235,0.025) 1px, transparent 1px);
+    background-size: 32px 32px;
+    pointer-events: none;
+  }
+  .floor-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    position: relative;
+  }
+  .floor-title h2 {
+    font-family: "IBM Plex Sans Arabic"; font-size: 22px; font-weight: 700;
+  }
+  .floor-title .dims {
+    font-family: "JetBrains Mono"; font-size: 11px;
+    letter-spacing: 0.2em; color: var(--gold);
+    padding: 6px 14px;
+    border: 1px solid rgba(196,165,114,0.3);
+    border-radius: 999px;
+  }
+
+  /* -------- Section headings -------- */
+  .section { margin: 70px 0; }
+  .section-eyebrow {
+    font-family: "JetBrains Mono"; font-size: 11px;
+    letter-spacing: 0.3em; color: var(--gold); margin-bottom: 10px;
+  }
+  .section h2 {
+    font-family: "IBM Plex Sans Arabic"; font-size: 32px;
+    font-weight: 700; color: var(--ink); margin-bottom: 24px;
+  }
+
+  /* -------- Zone cards (3-zone grid) -------- */
+  .zones {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 30px;
+  }
+  .zone {
+    background: var(--navy-card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 22px;
+    position: relative;
+  }
+  .zone .num {
+    font-family: "JetBrains Mono"; font-size: 32px; font-weight: 700;
+    color: var(--gold); line-height: 1;
+  }
+  .zone .label {
+    font-family: "JetBrains Mono"; font-size: 10px; letter-spacing: 0.3em;
+    color: var(--ink-3); margin-top: 4px;
+  }
+  .zone .ar-title {
+    font-family: "Noto Naskh Arabic"; font-size: 28px; font-weight: 700;
+    color: var(--gold-hi); margin: 14px 0 8px;
+  }
+  .zone .desc {
+    font-family: "IBM Plex Sans Arabic"; font-size: 14px;
+    color: var(--ink-2); line-height: 1.7;
+  }
+  .zone .items {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+  }
+  .zone .items li {
+    list-style: none;
+    font-family: "IBM Plex Sans Arabic"; font-size: 12.5px;
+    color: var(--ink); padding: 4px 0;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .zone .items li::before {
+    content: "▸"; color: var(--gold); font-size: 12px;
+  }
+
+  /* -------- Hardware grid -------- */
+  .hw-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+  .hw {
+    background: var(--navy-soft);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+  }
+  .hw-icon { font-size: 28px; color: var(--gold); margin-bottom: 8px; }
+  .hw-name {
+    font-family: "IBM Plex Sans Arabic"; font-size: 13px;
+    font-weight: 600; color: var(--ink);
+  }
+  .hw-qty {
+    font-family: "JetBrains Mono"; font-size: 10px;
+    letter-spacing: 0.2em; color: var(--gold); margin-top: 4px;
+  }
+  .hw-spec {
+    font-family: "Inter"; font-size: 11px;
+    color: var(--ink-3); margin-top: 6px; line-height: 1.4;
+  }
+
+  /* -------- Visitor flow -------- */
+  .flow {
+    background: linear-gradient(180deg, var(--navy-soft) 0%, var(--navy) 100%);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 30px;
+  }
+  .flow-steps {
+    display: flex;
+    align-items: stretch;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .flow-step {
+    flex: 1;
+    min-width: 160px;
+    background: var(--navy-card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 14px;
+    position: relative;
+  }
+  .flow-step .time {
+    font-family: "JetBrains Mono"; font-size: 11px;
+    letter-spacing: 0.15em; color: var(--gold); margin-bottom: 6px;
+  }
+  .flow-step .what {
+    font-family: "IBM Plex Sans Arabic"; font-size: 13px;
+    color: var(--ink); line-height: 1.6;
+  }
+
+  /* -------- Signage examples -------- */
+  .signage {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .sign {
+    border-radius: 12px;
+    padding: 30px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 200px;
+  }
+  .sign-1 { background: linear-gradient(180deg, #FBF9F4, #E6DECD); color: var(--navy); border: 1px solid rgba(0,0,0,0.06); }
+  .sign-2 { background: linear-gradient(180deg, var(--navy), #1E2C48); color: var(--ink); border: 1px solid var(--gold); }
+  .sign-3 { background: linear-gradient(180deg, var(--navy-soft), var(--navy-card)); color: var(--gold-hi); border: 1px solid var(--line); }
+  .sign .ar-big {
+    font-family: "Noto Naskh Arabic"; font-size: 40px; font-weight: 700;
+    line-height: 1; margin-bottom: 10px;
+  }
+  .sign .en-small {
+    font-family: "JetBrains Mono"; font-size: 11px;
+    letter-spacing: 0.3em; opacity: 0.7;
+  }
+
+  /* -------- Stats strip -------- */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 40px 0;
+  }
+  .stat {
+    background: var(--navy-card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 18px;
+    text-align: center;
+  }
+  .stat .num {
+    font-family: "JetBrains Mono"; font-size: 32px; font-weight: 700;
+    color: var(--gold-hi); line-height: 1;
+  }
+  .stat .lbl {
+    font-family: "IBM Plex Sans Arabic"; font-size: 12px;
+    color: var(--ink-2); margin-top: 8px;
+  }
+
+  /* -------- Footer -------- */
+  footer {
+    margin-top: 80px;
+    padding-top: 30px;
+    border-top: 1px solid var(--line);
+    text-align: center;
+    color: var(--ink-3);
+    font-family: "JetBrains Mono"; font-size: 11px;
+    letter-spacing: 0.2em;
+  }
+
+  /* -------- Print -------- */
+  @media print {
+    body { background: white; color: black; }
+    .container { padding: 20mm; }
+    .floor-wrap { background: white; border-color: #ccc; }
+    .floor-wrap::before { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <header>
+    <div class="brand">
+      <div class="brand-icon">◆</div>
+      <div>
+        <div class="brand-ar">راصد</div>
+        <div class="brand-en">RASSED · BOOTH DESIGN</div>
+      </div>
+    </div>
+    <div class="meta">
+      <div class="l1">يوم المراجعة الداخلية ٢٠٢٦</div>
+      <div class="l2">RAQEEM × SAVVY WORLD  ·  2026-05-20</div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-eyebrow">BOOTH DESIGN  ·  3-ZONE EXPERIENCE</div>
+    <h1>ثلاث مناطق · تجربة واحدة<br><b>من إشارة إلى حوكمة</b></h1>
+    <p>
+      البوث ليس مجرد كاونتر — هو رحلة من ثلاث محطات تعكس بُنية راصد ذاتها.
+      الزائر يبدأ بالاكتشاف، يتحقق بالحضانة الذكية، ثم يقرّر بنفسه.
+    </p>
+  </section>
+
+  <!-- Stats -->
+  <div class="stats">
+    <div class="stat"><div class="num">3×3<span style="font-size:14px"> م</span></div><div class="lbl">مساحة البوث</div></div>
+    <div class="stat"><div class="num">3</div><div class="lbl">مناطق تفاعلية</div></div>
+    <div class="stat"><div class="num">60s</div><div class="lbl">رحلة الزائر</div></div>
+    <div class="stat"><div class="num">8h</div><div class="lbl">يوم تشغيل كامل</div></div>
+  </div>
+
+  <!-- ============================
+       FLOOR PLAN — SVG isometric-ish top-down
+       ============================ -->
+  <div class="floor-wrap">
+    <div class="floor-title">
+      <h2 class="ar">المخطط الأرضي — Top View</h2>
+      <span class="dims mono">3.0 m × 3.0 m</span>
+    </div>
+
+    <svg viewBox="0 0 900 600" style="width: 100%; height: auto; display: block;">
+      <!-- Outer booth wall -->
+      <rect x="40" y="40" width="820" height="520" rx="10"
+            fill="rgba(15,24,40,0.6)"
+            stroke="#C4A572" stroke-width="2" stroke-opacity="0.5" />
+
+      <!-- Back wall with main screen -->
+      <rect x="60" y="60" width="780" height="80" rx="6"
+            fill="rgba(196,165,114,0.08)"
+            stroke="rgba(196,165,114,0.3)" stroke-width="1.5" />
+      <rect x="280" y="76" width="340" height="48" rx="3"
+            fill="rgba(0,217,255,0.05)"
+            stroke="#D4B785" stroke-width="1.5" />
+      <text x="450" y="105" text-anchor="middle"
+            font-family="JetBrains Mono" font-size="14" font-weight="600"
+            fill="#D4B785">85" 4K · MAIN SCREEN</text>
+      <text x="450" y="124" text-anchor="middle"
+            font-family="IBM Plex Sans Arabic" font-size="12"
+            fill="#C7CCD6">رحلة الـ ٩٠ ثانية · auto-loop</text>
+
+      <!-- ZONE 1 — DISCOVER (right side) -->
+      <rect x="610" y="180" width="220" height="340" rx="10"
+            fill="rgba(0,194,129,0.05)"
+            stroke="#00C281" stroke-width="1.5" stroke-dasharray="6 6" />
+      <text x="720" y="210" text-anchor="middle"
+            font-family="JetBrains Mono" font-size="11" letter-spacing="3"
+            fill="#00C281">ZONE 1  ·  DISCOVER</text>
+      <text x="720" y="240" text-anchor="middle"
+            font-family="Noto Naskh Arabic" font-size="32" font-weight="700"
+            fill="#F5F2EB">اكتشف</text>
+      <!-- G1 icon -->
+      <g transform="translate(720,330)">
+        <circle r="50" fill="rgba(196,165,114,0.1)" stroke="#C4A572" stroke-width="1.5" />
+        <circle cy="-15" r="14" fill="#C4A572" />
+        <rect x="-22" y="3" width="44" height="32" rx="6" fill="#C4A572" />
+        <rect x="-32" y="8" width="10" height="22" rx="3" fill="#C4A572" />
+        <rect x="22" y="8" width="10" height="22" rx="3" fill="#C4A572" />
+        <text y="78" text-anchor="middle"
+              font-family="JetBrains Mono" font-size="13" font-weight="700"
+              fill="#D4B785">G1 HOST</text>
+        <text y="96" text-anchor="middle"
+              font-family="IBM Plex Sans Arabic" font-size="12"
+              fill="#C7CCD6">روبوت الترحيب</text>
+      </g>
+      <text x="720" y="470" text-anchor="middle"
+            font-family="IBM Plex Sans Arabic" font-size="11"
+            fill="#7C8598">audio + LED + safe gesture</text>
+
+      <!-- ZONE 2 — VERIFY (center) -->
+      <rect x="340" y="180" width="260" height="340" rx="10"
+            fill="rgba(196,165,114,0.04)"
+            stroke="#C4A572" stroke-width="1.5" stroke-dasharray="6 6" />
+      <text x="470" y="210" text-anchor="middle"
+            font-family="JetBrains Mono" font-size="11" letter-spacing="3"
+            fill="#C4A572">ZONE 2  ·  VERIFY</text>
+      <text x="470" y="240" text-anchor="middle"
+            font-family="Noto Naskh Arabic" font-size="32" font-weight="700"
+            fill="#F5F2EB">تحقّق</text>
+
+      <!-- Lockers (left of PUDU) -->
+      <rect x="370" y="278" width="36" height="48" rx="3"
+            fill="rgba(196,165,114,0.15)" stroke="#C4A572" stroke-width="1.3" />
+      <rect x="370" y="332" width="36" height="48" rx="3"
+            fill="rgba(196,165,114,0.15)" stroke="#C4A572" stroke-width="1.3" />
+      <text x="388" y="305" text-anchor="middle"
+            font-family="JetBrains Mono" font-size="9" fill="#C4A572">L1</text>
+      <text x="388" y="358" text-anchor="middle"
+            font-family="JetBrains Mono" font-size="9" fill="#C4A572">L2</text>
+
+      <!-- PUDU FlashBot icon (center) -->
+      <g transform="translate(470,340)">
+        <rect x="-32" y="-30" width="64" height="64" rx="10"
+              fill="rgba(196,165,114,0.1)" stroke="#C4A572" stroke-width="1.5" />
+        <rect x="-22" y="-22" width="44" height="20" rx="3" fill="#C4A572" />
+        <circle cx="-15" cy="28" r="6" fill="#D4B785" />
+        <circle cx="15" cy="28" r="6" fill="#D4B785" />
+        <text y="58" text-anchor="middle"
+              font-family="JetBrains Mono" font-size="11" font-weight="700"
+              fill="#D4B785">PUDU FLASHBOT</text>
+        <text y="74" text-anchor="middle"
+              font-family="IBM Plex Sans Arabic" font-size="11"
+              fill="#C7CCD6">سلسلة الحضانة</text>
+      </g>
+
+      <!-- Robot path arrow -->
+      <path d="M 410 305 Q 440 320 470 340 Q 500 360 530 380"
+            fill="none" stroke="#D4B785" stroke-width="1.5"
+            stroke-dasharray="4 4" />
+
+      <!-- Lockers (right) -->
+      <rect x="534" y="278" width="36" height="48" rx="3"
+            fill="rgba(196,165,114,0.15)" stroke="#C4A572" stroke-width="1.3" />
+      <rect x="534" y="332" width="36" height="48" rx="3"
+            fill="rgba(196,165,114,0.15)" stroke="#C4A572" stroke-width="1.3" />
+      <text x="552" y="305" text-anchor="middle"
+            font-family="JetBrains Mono" font-size="9" fill="#C4A572">L3</text>
+      <text x="552" y="358" text-anchor="middle"
+            font-family="JetBrains Mono" font-size="9" fill="#C4A572">L4</text>
+
+      <text x="470" y="470" text-anchor="middle"
+            font-family="IBM Plex Sans Arabic" font-size="11"
+            fill="#7C8598">QR + Chain Hash + tamper-proof</text>
+
+      <!-- ZONE 3 — DECIDE (left) -->
+      <rect x="70" y="180" width="260" height="340" rx="10"
+            fill="rgba(0,217,255,0.04)"
+            stroke="#4A90E2" stroke-width="1.5" stroke-dasharray="6 6" />
+      <text x="200" y="210" text-anchor="middle"
+            font-family="JetBrains Mono" font-size="11" letter-spacing="3"
+            fill="#4A90E2">ZONE 3  ·  DECIDE</text>
+      <text x="200" y="240" text-anchor="middle"
+            font-family="Noto Naskh Arabic" font-size="32" font-weight="700"
+            fill="#F5F2EB">قرّر</text>
+
+      <!-- Tablet icon -->
+      <g transform="translate(200,340)">
+        <rect x="-40" y="-55" width="80" height="110" rx="8"
+              fill="rgba(74,144,226,0.1)" stroke="#4A90E2" stroke-width="1.8" />
+        <rect x="-32" y="-47" width="64" height="86" rx="3"
+              fill="rgba(196,165,114,0.08)" stroke="#C4A572" stroke-width="1" />
+        <circle cy="48" r="3" fill="#4A90E2" />
+        <text y="-15" text-anchor="middle"
+              font-family="IBM Plex Sans Arabic" font-size="10" font-weight="700"
+              fill="#D4B785">سـند</text>
+        <text y="0" text-anchor="middle"
+              font-family="JetBrains Mono" font-size="8"
+              fill="#C7CCD6">FINDINGS · 6</text>
+        <rect x="-22" y="14" width="44" height="16" rx="3" fill="#C4A572" opacity="0.7" />
+        <text y="26" text-anchor="middle"
+              font-family="IBM Plex Sans Arabic" font-size="8" font-weight="700"
+              fill="#070B14">اعتماد</text>
+        <text y="78" text-anchor="middle"
+              font-family="JetBrains Mono" font-size="11" font-weight="700"
+              fill="#4A90E2">27" TOUCH TABLET</text>
+        <text y="94" text-anchor="middle"
+              font-family="IBM Plex Sans Arabic" font-size="12"
+              fill="#C7CCD6">المراجع يقرّر بنفسه</text>
+      </g>
+
+      <!-- Visitor entry & arrow -->
+      <rect x="40" y="540" width="820" height="40" rx="4"
+            fill="rgba(196,165,114,0.05)"
+            stroke="rgba(196,165,114,0.2)" stroke-width="1" stroke-dasharray="4 4" />
+      <text x="450" y="568" text-anchor="middle"
+            font-family="IBM Plex Sans Arabic" font-size="13" font-weight="600"
+            fill="#C4A572">↑ مدخل الزوار · VISITOR ENTRY ↑</text>
+
+      <!-- Visitor flow curve -->
+      <path d="M 720 540 L 720 460"
+            fill="none" stroke="#00C281" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.5" />
+      <path d="M 720 200 Q 595 230 470 230"
+            fill="none" stroke="#C4A572" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.5" />
+      <path d="M 340 230 Q 270 230 200 240"
+            fill="none" stroke="#4A90E2" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.5" />
+    </svg>
+  </div>
+
+  <!-- ============================
+       ZONE CARDS
+       ============================ -->
+  <section class="section">
+    <div class="section-eyebrow">THE THREE ZONES  ·  المناطق الثلاث</div>
+    <h2 class="ar">رحلة الزائر — ٦٠ ثانية</h2>
+    <div class="zones">
+      <div class="zone">
+        <div class="num">01</div>
+        <div class="label mono">DISCOVER</div>
+        <div class="ar-title">اكتشف</div>
+        <div class="desc">
+          الزائر يدخل، G1 يسلّم عليه بالعربي،
+          ويأشّر للشاشة الرئيسية. لحظة جذب.
+        </div>
+        <ul class="items">
+          <li>روبوت G1 (Audio + LED + Safe gesture)</li>
+          <li>ترحيب عربي مسجّل مسبقاً</li>
+          <li>إشارة للشاشة الرئيسية</li>
+          <li>هدف: <b>0–15s</b> من الرحلة</li>
+        </ul>
+      </div>
+      <div class="zone">
+        <div class="num">02</div>
+        <div class="label mono">VERIFY</div>
+        <div class="ar-title">تحقّق</div>
+        <div class="desc">
+          شاشة ٨٥" تشتغل لوب الـ ٩٠ ثانية. PUDU FlashBot
+          ينقل ملف مختوم بين خزانتين QR.
+        </div>
+        <ul class="items">
+          <li>85" 4K back-wall screen — auto-loop</li>
+          <li>PUDU FlashBot (live أو video fallback)</li>
+          <li>4× QR-locked lockers (props)</li>
+          <li>هدف: <b>15s–95s</b> من الرحلة</li>
+        </ul>
+      </div>
+      <div class="zone">
+        <div class="num">03</div>
+        <div class="label mono">DECIDE</div>
+        <div class="ar-title">قرّر</div>
+        <div class="desc">
+          تابلت تاتش ٢٧" — الزائر يجرّب سند بنفسه،
+          يلصق سياسة، ويضغط «اعتماد».
+          <b style="color:var(--gold-hi)">هنا تصير الفكرة شخصية.</b>
+        </div>
+        <ul class="items">
+          <li>27" touch tablet (iPad Pro 13 / Lenovo)</li>
+          <li>Live sanad demo with sample policy</li>
+          <li>"اعتماد" button — حقيقي وحاسم</li>
+          <li>هدف: <b>95s–150s</b> من الرحلة</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       HARDWARE GRID
+       ============================ -->
+  <section class="section">
+    <div class="section-eyebrow">HARDWARE  ·  المعدّات الأساسية</div>
+    <h2 class="ar">الـ Stack المادي</h2>
+    <div class="hw-grid">
+      <div class="hw">
+        <div class="hw-icon">📺</div>
+        <div class="hw-name">85" 4K Screen</div>
+        <div class="hw-qty mono">×1</div>
+        <div class="hw-spec">Samsung QM85R أو ما يكافئها · HDMI · back wall</div>
+      </div>
+      <div class="hw">
+        <div class="hw-icon">📱</div>
+        <div class="hw-name">27" Touch Tablet</div>
+        <div class="hw-qty mono">×1</div>
+        <div class="hw-spec">iPad Pro 13 / Lenovo Yoga · adjustable stand</div>
+      </div>
+      <div class="hw">
+        <div class="hw-icon">🤖</div>
+        <div class="hw-name">G1 Humanoid</div>
+        <div class="hw-qty mono">×1</div>
+        <div class="hw-spec">3LLAM unit · Audio + LED + 1 safe gesture only</div>
+      </div>
+      <div class="hw">
+        <div class="hw-icon">🦾</div>
+        <div class="hw-name">PUDU FlashBot</div>
+        <div class="hw-qty mono">×1</div>
+        <div class="hw-spec">شراكة فعّالة — live أو video fallback</div>
+      </div>
+      <div class="hw">
+        <div class="hw-icon">🔒</div>
+        <div class="hw-name">QR-locked Lockers</div>
+        <div class="hw-qty mono">×4</div>
+        <div class="hw-spec">Props · branded · Chain of Custody demo</div>
+      </div>
+      <div class="hw">
+        <div class="hw-icon">💻</div>
+        <div class="hw-name">Mini-PC (Kiosk)</div>
+        <div class="hw-qty mono">×1</div>
+        <div class="hw-spec">Intel NUC · 32GB · Chrome kiosk · offline cache</div>
+      </div>
+      <div class="hw">
+        <div class="hw-icon">📡</div>
+        <div class="hw-name">LTE Router</div>
+        <div class="hw-qty mono">×1</div>
+        <div class="hw-spec">Booth-only network — venue WiFi غير موثوق</div>
+      </div>
+      <div class="hw">
+        <div class="hw-icon">🔋</div>
+        <div class="hw-name">UPS Backup</div>
+        <div class="hw-qty mono">×1</div>
+        <div class="hw-spec">1500VA · 15min protection لو انقطعت الكهرباء</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       VISITOR FLOW
+       ============================ -->
+  <section class="section">
+    <div class="section-eyebrow">VISITOR FLOW  ·  تدفّق الزائر</div>
+    <h2 class="ar">٦٠–١٥٠ ثانية تجربة كاملة</h2>
+    <div class="flow">
+      <div class="flow-steps">
+        <div class="flow-step">
+          <div class="time">00:00–00:15</div>
+          <div class="what">يدخل البوث · G1 يرحّب بالعربي</div>
+        </div>
+        <div class="flow-step">
+          <div class="time">00:15–01:30</div>
+          <div class="what">يشاهد رحلة الـ ٩٠ ثانية على الشاشة الرئيسية</div>
+        </div>
+        <div class="flow-step">
+          <div class="time">01:30–02:30</div>
+          <div class="what">يتفاعل مع سند على التابلت · يضغط «اعتماد»</div>
+        </div>
+        <div class="flow-step">
+          <div class="time">02:30–02:45</div>
+          <div class="what">يستلم الـ Brief + QR card · G1 يشكره</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       SIGNAGE
+       ============================ -->
+  <section class="section">
+    <div class="section-eyebrow">SIGNAGE  ·  اللوحات</div>
+    <h2 class="ar">٣ لوحات معلّقة فوق المناطق</h2>
+    <div class="signage">
+      <div class="sign sign-3">
+        <div class="ar-big">اكتشف</div>
+        <div class="en-small">DISCOVER  ·  01</div>
+      </div>
+      <div class="sign sign-2">
+        <div class="ar-big">تحقّق</div>
+        <div class="en-small">VERIFY  ·  02</div>
+      </div>
+      <div class="sign sign-1">
+        <div class="ar-big">قرّر</div>
+        <div class="en-small">DECIDE  ·  03</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing manifesto -->
+  <section class="section">
+    <div style="
+      background: linear-gradient(180deg, rgba(196,165,114,0.08), rgba(196,165,114,0.02));
+      border: 1px solid rgba(196,165,114,0.3);
+      border-radius: 18px;
+      padding: 50px 40px;
+      text-align: center;
+    ">
+      <div class="mono" style="font-size: 11px; letter-spacing: 0.3em; color: var(--gold);">
+        BOOTH PHILOSOPHY
+      </div>
+      <h2 class="ar-serif" style="font-family: Noto Naskh Arabic; font-size: 32px; line-height: 1.5; margin-top: 20px; color: var(--ink); font-weight: 700;">
+        البوث ليس عرضاً للمنتج —
+        <span style="color: var(--gold-hi);">هو تكريم لحرفة المراجعة الداخلية،</span>
+        <br>حيث يُقدَّم AI، الروبوتات، وحوكمة الأجهزة كزملاء جدد للمراجع.
+      </h2>
+    </div>
+  </section>
+
+  <footer>
+    SAVVY WORLD  ·  RAQEEM  ·  RCJY  ·  2026-05-20
+  </footer>
+
+</div>
+</body>
+</html>
