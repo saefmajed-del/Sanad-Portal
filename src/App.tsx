@@ -36,10 +36,12 @@ import {
 } from "./data";
 import { JourneySection } from "./journey";
 import { BoothMockup } from "./BoothMockup";
+import { JourneyExperience } from "./JourneyExperience";
 
 type AnalysisState = "idle" | "running" | "done";
 
 export default function App() {
+  const [journeyOpen, setJourneyOpen] = useState(false);
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-base">
       <BackgroundLayers />
@@ -54,6 +56,23 @@ export default function App() {
         <LaunchCard />
         <Footer />
       </main>
+
+      {/* Floating CTA — opens interactive visitor journey */}
+      <button
+        type="button"
+        onClick={() => setJourneyOpen(true)}
+        className="fixed bottom-6 left-6 z-40 flex items-center gap-2.5 rounded-full border border-gold-500/50 bg-gradient-to-r from-gold-400 to-gold-500 px-5 py-3 text-navy-900 shadow-2xl transition hover:scale-105"
+        style={{ boxShadow: "0 8px 32px -8px rgba(196,165,114,0.55)" }}
+      >
+        <Sparkles className="h-4 w-4" />
+        <span className="ar text-[14px] font-bold">جرّب كأنك المراجع</span>
+        <span className="mono text-[10px] tracking-widest opacity-70">START</span>
+      </button>
+
+      <JourneyExperience
+        open={journeyOpen}
+        onClose={() => setJourneyOpen(false)}
+      />
     </div>
   );
 }
